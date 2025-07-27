@@ -10,11 +10,22 @@ connectDB();
 const app = express();
 
 // ✅ CORS config with origin + methods
+const cors = require('cors');
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://voting-virid.vercel.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 // ✅ JSON body parser
