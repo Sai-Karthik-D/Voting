@@ -13,8 +13,10 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://voting-virid.vercel.app'
+  'https://voting-virid.vercel.app',
+  'https://voting-p7m58bxa9-sai-karthiks-projects-f1788493.vercel.app'
 ];
+
 
 app.use(cors({
   origin: function (origin, callback) {
