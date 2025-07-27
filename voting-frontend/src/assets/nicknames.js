@@ -1,0 +1,1 @@
+import short_img from './assets/short.jpg';
