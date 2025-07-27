@@ -5,7 +5,16 @@ const voteRouter = express.Router();
 
 // ✅ Add OPTIONS handler for preflight
 voteRouter.options('/vote', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'https://voting-virid.vercel.app'
+  ];
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.sendStatus(200);
