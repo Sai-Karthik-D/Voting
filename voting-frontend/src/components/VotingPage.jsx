@@ -56,7 +56,7 @@ const VotingPage = () => {
 
     try {
       for (const option of selectedNames) {
-        await axios.post('http://localhost:5000/api/vote', {
+        await axios.post('https://voting-341c.onrender.com/api/vote', {
           voter: voterRole,
           choice: option,
         });

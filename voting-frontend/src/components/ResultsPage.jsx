@@ -10,7 +10,7 @@ const ResultsPage = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/results');
+        const res = await axios.get('https://voting-341c.onrender.com/api/results');
         const allVotes = res.data.data;
 
         setVoteCounts(allVotes);
